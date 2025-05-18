@@ -8,9 +8,9 @@ export const CustomerInfo = {
     dealer: "Mr. SURESH KUMAR PRAJAPATI",
     organisation: "ALU Fenestration",
     address:
-      "CORINZO ALUMINIUM WINDOW SYSTEM, NEAR BAHAD CIRCLE, RANISATI ROAD, SIKAR-332001 (RAJ.)",
-    phone: "9828223334",
-    email: "asiandoors3d@gmail.com",
+      "ALU Fenestration ALUMINIUM WINDOW SYSTEM, NEAR BAHAD CIRCLE, RANISATI ROAD, SIKAR-332001 (RAJ.)",
+    phone: "8432475152, 9785115505",
+    email: "kailashjangir5152@gmail.com",
   },
   client_info: {
     client: "Mr. NARENDRA JI JANGID",
@@ -25,11 +25,11 @@ export const CustomerInfo = {
     phone: "0261 2272286, +91 9825904513, +91 9825904504",
   },
   quote_info: {
-    quote: "7222022-O-02532",
+    quote: "",
     date: date,
-    email: "sales@corinzo.in",
-    website: "www.corizo.in",
-    person: "SURESH JI SIKAR",
+    email: "",
+    website: "",
+    person: "",
     phone: "6351701699",
   },
 };

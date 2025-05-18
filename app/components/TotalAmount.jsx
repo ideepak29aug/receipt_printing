@@ -38,19 +38,19 @@ const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
               <input
                 className="w-[80%]"
                 type="text"
-                defaultValue="GANPATI ALUMINIUM"
+                defaultValue="ALU Fenestration"
               />
             </div>
             <div className="flex items-center">
               <p className="w-[20%]">Bank Name : </p>
-              <input className="w-[80%]" type="text" defaultValue="AXIS BANK" />
+              <input className="w-[80%]" type="text" defaultValue="HDFC BANK" />
             </div>
             <div className="flex items-center">
               <p className="w-[20%]">Branch : </p>
               <input
                 className="w-[80%]"
                 type="text"
-                defaultValue="Magob, Surat, Gujarat"
+                defaultValue="KALYAN CIRCLE, STATION ROAD, SIKAR"
               />
             </div>
             <div className="flex items-center">
@@ -58,7 +58,7 @@ const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
               <input
                 className="w-[80%]"
                 type="text"
-                defaultValue="918030001953247"
+                defaultValue="50200040547854"
               />
             </div>
             <div className="flex items-center">
@@ -66,7 +66,7 @@ const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
               <input
                 className="w-[80%]"
                 type="text"
-                defaultValue="UTIB0001050"
+                defaultValue="HDFC0001125"
               />
             </div>
           </div>
