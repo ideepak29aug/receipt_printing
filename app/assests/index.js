@@ -19,4 +19,4 @@ export { default as image18 } from "./image_18.jpg";
 export { default as image19 } from "./image_19.jpg";
 export { default as image20 } from "./image_20.jpg";
 export { default as image21 } from "./image_21.jpg";
-export { default as logo } from "./logo.png";
+export { default as logo } from "./logo.jpg";

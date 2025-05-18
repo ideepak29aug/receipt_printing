@@ -42,7 +42,7 @@ const [totalWindows, setTotalWindows] = useState(0);
           <p className="text-red-500 font-bold">"Shree Ganeshay Namah"</p>
         </div>
         <div className="flex justify-end items-center">
-          <Image src={logo} alt="" height={100} width={170} style={{width: "auto", height: "auto"}}/>
+          <Image src={logo} alt="" height={100} width={130} style={{width: "auto", height: "auto"}}/>
         </div>
         <InfoSection />
         <Estimate totalAmount={totalAmount} totalSqft={totalSqft} totalWindows={totalWindows}/>

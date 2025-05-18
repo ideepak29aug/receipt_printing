@@ -6,7 +6,7 @@ const date = today.format("DD-MM-YYYY");
 export const CustomerInfo = {
   dealer_info: {
     dealer: "Mr. SURESH KUMAR PRAJAPATI",
-    organisation: "ASIAN DOORS",
+    organisation: "ALU Fenestration",
     address:
       "CORINZO ALUMINIUM WINDOW SYSTEM, NEAR BAHAD CIRCLE, RANISATI ROAD, SIKAR-332001 (RAJ.)",
     phone: "9828223334",
