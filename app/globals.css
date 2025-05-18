@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* table borders */
+td,
+th {
+  border: 1px solid black;
+}
+@media print {
+  th {
+    background-color: #808080 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color: white !important; /* Ensure text is visible on dark background */
+  }
+}
+@media print {
+  .blue_row {
+    background-color: #b0c4de !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+@media print {
+#printable {
+  page-break-before: always;
+}
+}
+
+.custom-list{
+  list-style-type: decimal;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+}
+
+
+/* start button */
+
+.start,
+.start::after {
+  padding: 10px 50px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: transparent;
+  position: relative;
+}
+
+.start::after {
+  --move1: inset(50% 50% 50% 50%);
+  --move2: inset(31% 0 40% 0);
+  --move3: inset(39% 0 15% 0);
+  --move4: inset(45% 0 40% 0);
+  --move5: inset(45% 0 6% 0);
+  --move6: inset(14% 0 61% 0);
+  clip-path: var(--move1);
+  content: "GLITCH";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+}
+
+.start:hover::after {
+  animation: glitch_4011 1s;
+  text-shadow: 10 10px 10px black;
+  animation-timing-function: steps(2, end);
+  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #e94be8;
+  background-color: transparent;
+  border: 3px solid rgb(0, 255, 213);
+}
+
+.start:hover {
+  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #e94be8;
+}
+
+.start:hover {
+  background-color: transparent;
+  border: 1px solid rgb(0, 255, 213);
+  box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+}
+
+@keyframes glitch_4011 {
+  0% {
+    clip-path: var(--move1);
+    transform: translate(0px, -10px);
+  }
+
+  10% {
+    clip-path: var(--move2);
+    transform: translate(-10px, 10px);
+  }
+
+  20% {
+    clip-path: var(--move3);
+    transform: translate(10px, 0px);
+  }
+
+  30% {
+    clip-path: var(--move4);
+    transform: translate(-10px, 10px);
+  }
+
+  40% {
+    clip-path: var(--move5);
+    transform: translate(10px, -10px);
+  }
+
+  50% {
+    clip-path: var(--move6);
+    transform: translate(-10px, 10px);
+  }
+
+  60% {
+    clip-path: var(--move1);
+    transform: translate(10px, -10px);
+  }
+
+  70% {
+    clip-path: var(--move3);
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    clip-path: var(--move2);
+    transform: translate(10px, -10px);
+  }
+
+  90% {
+    clip-path: var(--move4);
+    transform: translate(-10px, 10px);
+  }
+
+  100% {
+    clip-path: var(--move1);
+    transform: translate(0);
+  }
+}
+
+.gradient-bg {
+  background-image: linear-gradient(
+      45deg,
+      rgba(254, 246, 210, 0.53) 0%,
+      rgba(254, 246, 210, 0.53) 14.286%,
+      rgba(221, 240, 216, 0.53) 14.286%,
+      rgba(221, 240, 216, 0.53) 28.572%,
+      rgba(188, 233, 223, 0.53) 28.572%,
+      rgba(188, 233, 223, 0.53) 42.858%,
+      rgba(156, 227, 229, 0.53) 42.858%,
+      rgba(156, 227, 229, 0.53) 57.144%,
+      rgba(123, 220, 235, 0.53) 57.144%,
+      rgba(123, 220, 235, 0.53) 71.42999999999999%,
+      rgba(90, 214, 242, 0.53) 71.43%,
+      rgba(90, 214, 242, 0.53) 85.71600000000001%,
+      rgba(57, 207, 248, 0.53) 85.716%,
+      rgba(57, 207, 248, 0.53) 100.002%
+    ),
+    linear-gradient(
+      135deg,
+      rgb(246, 99, 200) 0%,
+      rgb(246, 99, 200) 12.5%,
+      rgb(223, 98, 196) 12.5%,
+      rgb(223, 98, 196) 25%,
+      rgb(199, 97, 192) 25%,
+      rgb(199, 97, 192) 37.5%,
+      rgb(176, 96, 188) 37.5%,
+      rgb(176, 96, 188) 50%,
+      rgb(152, 95, 184) 50%,
+      rgb(152, 95, 184) 62.5%,
+      rgb(129, 94, 180) 62.5%,
+      rgb(129, 94, 180) 75%,
+      rgb(105, 93, 176) 75%,
+      rgb(105, 93, 176) 87.5%,
+      rgb(82, 92, 172) 87.5%,
+      rgb(82, 92, 172) 100%
+    );
+}
+
+/* glassmorphism css */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.67);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.8px);
+  -webkit-backdrop-filter: blur(8.8px);
+}
+
+.glassmorphism2 {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
 }
