@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
-  const [cost, setCost] = useState(2278);
+  const [cost, setCost] = useState(0);
   const [subTotal, setSubTotal] = useState(totalAmount);
   const [totalGst, setTotalGst] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
@@ -143,7 +143,7 @@ const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
                 :
               </td>
               <td className="p-1" align="right">
-                <input type="text" defaultValue={"1021.25"}/>
+                <input type="number" defaultValue={0}/>
               </td>
               <td className="p-1">Rs.</td>
             </tr>

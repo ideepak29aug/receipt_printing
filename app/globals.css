@@ -34,17 +34,16 @@ th {
 }
 
 @media print {
-#printable {
-  page-break-before: always;
-}
+  #printable {
+    page-break-before: always;
+  }
 }
 
-.custom-list{
+.custom-list {
   list-style-type: decimal;
   list-style-position: outside;
   padding-left: 1.5rem;
 }
-
 
 /* start button */
 
@@ -191,18 +190,3 @@ th {
     );
 }
 
-/* glassmorphism css */
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.67);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8.8px);
-  -webkit-backdrop-filter: blur(8.8px);
-}
-
-.glassmorphism2 {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-}

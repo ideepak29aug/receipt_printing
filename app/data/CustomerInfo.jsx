@@ -21,8 +21,8 @@ export const CustomerInfo = {
   supplier_info: {
     supplier: "GANPATI ALUMINIUM",
     address:
-      "3,4 Mahaprabhu nagar, block-23, Survery-9/1, Narayan Nagar Main Road, Limbayat, Surat-394210 (Guj.)",
-    phone: "0261 2272286, +91 9825904513, +91 9825904504",
+      "Sikar",
+    phone: "+91 987654321",
   },
   quote_info: {
     quote: "",

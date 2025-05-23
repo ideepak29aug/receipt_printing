@@ -31,9 +31,9 @@ const page = () => {
       </div>
       {/* form */}
       <div>
-        <div className="flex flex-wrap justify-center items-center gap-4">
+        <div className="flex flex-wrap justify-center items-center gap-4 font-semibold">
           {/* dealer box */}
-          <div className="border-2 w-[45%] p-3 glassmorphism2 h-60 space-y-3">
+          <div className="shadow-xl w-[45%] p-4 bg-white/40 backdrop-blur-sm rounded-xl h-60 space-y-3">
             <div className="flex gap-2">
               <label htmlFor="dealer_name" className="">
                 Dealer Name:{" "}
@@ -141,7 +141,7 @@ const page = () => {
             </div>
           </div>
           {/* supplier box */}
-          <div className="border-2 w-[45%] p-3 glassmorphism2 h-60 space-y-3">
+          <div className="shadow-xl w-[45%] p-4 bg-white/40 backdrop-blur-sm rounded-xl h-60 space-y-3">
             <div className="">
               <input
                 type="text"
@@ -161,13 +161,13 @@ const page = () => {
             </div>
             <div className="flex gap-2">
               <label htmlFor="supplier_address" className="">
-                Address:{" "}
+                Site Address:{" "}
               </label>
               <input
                 id="supplier_address"
                 type="text"
                 value={customerInfo.supplier_info.address}
-                className="w-[90%]"
+                className="w-[80%]"
                 onChange={(e) => {
                   const newValue = e.target.value;
                   setCustomerInfo((prev) => ({
@@ -182,13 +182,13 @@ const page = () => {
             </div>
             <div className="flex gap-2">
               <label htmlFor="supplier_phone" className="">
-                Office:{" "}
+                Ph No. :{" "}
               </label>
               <input
                 id="supplier_phone"
                 type="text"
                 value={customerInfo.supplier_info.phone}
-                className="w-[90%]"
+                className="w-[80%]"
                 onChange={(e) => {
                   const newValue = e.target.value;
                   setCustomerInfo((prev) => ({
@@ -203,7 +203,7 @@ const page = () => {
             </div>
           </div>
           {/* client box */}
-          <div className="border-2 w-[45%] p-3 glassmorphism2 h-60 space-y-3">
+          <div className="shadow-xl w-[45%] p-4 bg-white/40 backdrop-blur-sm rounded-xl h-60 space-y-3">
             <div className="flex gap-2">
               <label htmlFor="client_name" className="">
                 Client Name:{" "}
@@ -290,7 +290,7 @@ const page = () => {
             </div>
           </div>
           {/* quote box */}
-          <div className="border-2 w-[45%] p-3 glassmorphism2 h-60 space-y-3">
+          <div className="shadow-xl w-[45%] p-4 bg-white/40 backdrop-blur-sm rounded-xl h-60 space-y-3">
             <div className="flex gap-2">
               <label htmlFor="quote_number" className="">
                 Quote No :{" "}

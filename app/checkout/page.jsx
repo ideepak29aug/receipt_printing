@@ -42,15 +42,27 @@ const [totalWindows, setTotalWindows] = useState(0);
           <p className="text-red-500 font-bold">"Shree Ganeshay Namah"</p>
         </div>
         <div className="flex justify-end items-center">
-          <Image src={logo} alt="" height={100} width={130} style={{width: "auto", height: "auto"}}/>
+          <Image
+            src={logo}
+            alt=""
+            style={{ height: "auto" }}
+            width={130}
+          />
         </div>
         <InfoSection />
-        <Estimate totalAmount={totalAmount} totalSqft={totalSqft} totalWindows={totalWindows}/>
-        <TotalAmount totalAmount={totalAmount} totalSqft={totalSqft} totalWeight={totalWeight} totalWindows={totalWindows}/>
+        <Estimate
+          totalAmount={totalAmount}
+          totalSqft={totalSqft}
+          totalWindows={totalWindows}
+        />
+        <TotalAmount
+          totalAmount={totalAmount}
+          totalSqft={totalSqft}
+          totalWeight={totalWeight}
+          totalWindows={totalWindows}
+        />
         <LastSection />
 
-
-        
         {/* print button */}
         <button
           onClick={() => window.print()}

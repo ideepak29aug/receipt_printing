@@ -41,12 +41,12 @@ const InfoSection = () => {
         )}
         {customerInfo.supplier_info.address && (
           <p className="font-semibold">
-            Address : {customerInfo.supplier_info.address}
+            Site Address : {customerInfo.supplier_info.address}
           </p>
         )}
         {customerInfo.supplier_info.phone && (
           <p className="font-semibold">
-            Office : {customerInfo.supplier_info.phone}
+            Ph no. : {customerInfo.supplier_info.phone}
           </p>
         )}
       </div>

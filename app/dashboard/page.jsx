@@ -15,7 +15,7 @@ const page = () => {
   const router = useRouter();
 
   return (
-    <div className="relative w-full flex flex-col justify-center items-center gap-4 p-3 gradient-bg">
+    <div className="relative w-full flex flex-col justify-center items-center gap-4 p-3 gradient-bg z-0">
       {isOpen?.status && <CardModal setIsOpen={setIsOpen} isOpen={isOpen} />}
       <div className="flex justify-between w-full px-8">
         <button
@@ -34,7 +34,7 @@ const page = () => {
           Next
         </button>
       </div>
-      <div className="flex flex-wrap mx-auto gap-8 justify-center items-center overflow-y-scroll h-[90vh] no-scrollbar">
+      <div className="flex flex-wrap mx-auto p-4 gap-8 justify-center items-center overflow-y-scroll h-[90vh] no-scrollbar">
         {data?.map((item, index) => (
           <ImageCards key={index} data={item} setIsOpen={setIsOpen} />
         ))}

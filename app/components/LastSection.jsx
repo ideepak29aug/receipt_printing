@@ -45,8 +45,9 @@ const LastSection = () => {
             </li>
             <li>
               Once windows are installed, the client should check and inform us
-              within 2 days in case of any manufacturing defect. Corinzo Systems
-              is not liable for any replacement after the aforementioned period.{" "}
+              within 2 days in case of any manufacturing defect. ALU
+              Fenestration Systems is not liable for any replacement after the
+              aforementioned period.
             </li>
             <li>
               We will require the following at site at no extra cost: Power for
@@ -84,7 +85,11 @@ const LastSection = () => {
           </table>
         </div>
       </div>
-      <p className="mt-6">I hereby accept the estimate as per above mentioned price and specifications. I have read and understood the terms & conditions and agree to them.</p>
+      <p className="mt-6">
+        I hereby accept the estimate as per above mentioned price and
+        specifications. I have read and understood the terms & conditions and
+        agree to them.
+      </p>
       <div className="flex justify-between mt-20">
         <p>Authorized Signatory</p>
         <p>Signature of Customer</p>
