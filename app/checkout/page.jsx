@@ -41,7 +41,7 @@ const [totalWindows, setTotalWindows] = useState(0);
         <div className="flex justify-center items-center">
           <p className="text-red-500 font-bold">"Shree Ganeshay Namah"</p>
         </div>
-        <div className="flex justify-end items-center">
+        <div className="flex justify-center items-center">
           <Image
             src={logo}
             alt=""
