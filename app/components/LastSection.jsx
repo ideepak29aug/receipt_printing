@@ -57,32 +57,6 @@ const LastSection = () => {
             <li>Windows will be Installed 30 days after advance received.</li>
             <li className="font-bold">This rate is for 15 days</li>
           </ul>
-          <table className="w-full mt-4">
-            <thead>
-              <tr>
-                <th className="w-[40%]"></th>
-                <th className="w-[60%]"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="p-1">Profile</td>
-                <td className="p-1"></td>
-              </tr>
-              <tr>
-                <td className="p-1">Hardware</td>
-                <td className="p-1"></td>
-              </tr>
-              <tr>
-                <td className="p-1">Glass</td>
-                <td className="p-1"></td>
-              </tr>
-              <tr>
-                <td className="p-1">Mosquito Mesh</td>
-                <td className="p-1"></td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
       <p className="mt-6">

@@ -42,9 +42,9 @@ const Estimate = ({ totalSqft, totalAmount, totalWindows }) => {
             <th className="w-[3.5rem]">{`Amount (Rs.)`}</th>
           </tr>
         </thead>
-        {totalWindows !== 0 ? <tbody>
-          {data?.map((item, index) => (
-            <ProductTable key={index} data={item} index={index} />
+        {totalWindows !== 0 ? <tbody >
+          {data?.filter(item => item.selected).map((item, index) => (
+            <ProductTable key={index} data={item} serialNumber={index} />
           ))}
           <tr>
             <td colSpan="3" align="center">

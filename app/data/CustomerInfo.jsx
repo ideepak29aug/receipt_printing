@@ -5,7 +5,6 @@ const date = today.format("DD-MM-YYYY");
 
 export const CustomerInfo = {
   dealer_info: {
-    dealer: "Mr. SURESH KUMAR PRAJAPATI",
     organisation: "ALU Fenestration",
     address:
       "ALU Fenestration ALUMINIUM WINDOW SYSTEM, NEAR BAHAD CIRCLE, RANISATI ROAD, SIKAR-332001 (RAJ.)",
@@ -13,23 +12,18 @@ export const CustomerInfo = {
     email: "kailashjangir5152@gmail.com",
   },
   client_info: {
-    client: "Mr. NARENDRA JI JANGID",
-    organisation: "NARENDRA JI JANGID",
+    client: "",
+    organisation: "",
     address: "SIKAR",
-    phone: "7727852952",
+    phone: "",
   },
   supplier_info: {
-    supplier: "GANPATI ALUMINIUM",
-    address:
-      "Sikar",
-    phone: "+91 987654321",
+    address: "Sikar",
+    phone: "",
   },
   quote_info: {
     quote: "",
     date: date,
-    email: "",
-    website: "",
-    person: "",
-    phone: "6351701699",
   },
+  gst_type: 'Rajasthan',
 };

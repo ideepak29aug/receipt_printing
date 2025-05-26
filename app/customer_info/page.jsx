@@ -8,6 +8,14 @@ const page = () => {
   const route = useRouter();
   const { customerInfo, setCustomerInfo } = useContext(AccountContext);
 
+  const handleGstChange = (event) => {
+    const newValue = event.target.value;
+    setCustomerInfo((prev) => ({
+      ...prev,
+      gst_type: newValue,
+    }));
+  };
+
   return (
     <div className="gradient-bg h-screen p-4 space-y-10">
       <div className="flex justify-between items-center px-8">
@@ -34,27 +42,6 @@ const page = () => {
         <div className="flex flex-wrap justify-center items-center gap-4 font-semibold">
           {/* dealer box */}
           <div className="shadow-xl w-[45%] p-4 bg-white/40 backdrop-blur-sm rounded-xl h-60 space-y-3">
-            <div className="flex gap-2">
-              <label htmlFor="dealer_name" className="">
-                Dealer Name:{" "}
-              </label>
-              <input
-                id="dealer_name"
-                type="text"
-                value={customerInfo.dealer_info.dealer}
-                className="w-[70%]"
-                onChange={(e) => {
-                  const newValue = e.target.value;
-                  setCustomerInfo((prev) => ({
-                    ...prev,
-                    dealer_info: {
-                      ...prev.dealer_info,
-                      dealer: newValue,
-                    },
-                  }));
-                }}
-              />
-            </div>
             <div className="flex gap-2">
               <label htmlFor="organisation_name" className="">
                 Organisation Name:{" "}
@@ -142,23 +129,6 @@ const page = () => {
           </div>
           {/* supplier box */}
           <div className="shadow-xl w-[45%] p-4 bg-white/40 backdrop-blur-sm rounded-xl h-60 space-y-3">
-            <div className="">
-              <input
-                type="text"
-                value={customerInfo.supplier_info.supplier}
-                className="w-[70%]"
-                onChange={(e) => {
-                  const newValue = e.target.value;
-                  setCustomerInfo((prev) => ({
-                    ...prev,
-                    supplier_info: {
-                      ...prev.supplier_info,
-                      supplier: newValue,
-                    },
-                  }));
-                }}
-              />
-            </div>
             <div className="flex gap-2">
               <label htmlFor="supplier_address" className="">
                 Site Address:{" "}
@@ -318,90 +288,30 @@ const page = () => {
               </label>
               <p>{customerInfo.quote_info.date}</p>
             </div>
-            <div className="flex gap-2">
-              <label htmlFor="quote_email" className="">
-                Email :{" "}
-              </label>
+          </div>
+          {/* GST box */}
+          <div className="shadow-xl w-[45%] p-4 bg-white/40 backdrop-blur-sm rounded-xl h-60 gap-3 flex flex-col">
+            GST Type
+            <label className="flex gap-3">
               <input
-                id="quote_email"
-                type="text"
-                value={customerInfo.quote_info.email}
-                className="w-[70%]"
-                onChange={(e) => {
-                  const newValue = e.target.value;
-                  setCustomerInfo((prev) => ({
-                    ...prev,
-                    quote_info: {
-                      ...prev.quote_info,
-                      email: newValue,
-                    },
-                  }));
-                }}
+                type="radio"
+                name="option"
+                value="Rajasthan"
+                onChange={handleGstChange}
+                checked={customerInfo.gst_type === "Rajasthan"}
               />
-            </div>
-            <div className="flex gap-2">
-              <label htmlFor="quote_website" className="">
-                Web :{" "}
-              </label>
+              GST for Rajasthan
+            </label>
+            <label className="flex gap-3">
               <input
-                id="quote_website"
-                type="text"
-                value={customerInfo.quote_info.website}
-                className="w-[70%]"
-                onChange={(e) => {
-                  const newValue = e.target.value;
-                  setCustomerInfo((prev) => ({
-                    ...prev,
-                    quote_info: {
-                      ...prev.quote_info,
-                      website: newValue,
-                    },
-                  }));
-                }}
+                type="radio"
+                name="option"
+                value="Outside"
+                onChange={handleGstChange}
+                checked={customerInfo.gst_type === "Outside"}
               />
-            </div>
-            <div className="flex gap-2">
-              <label htmlFor="quote_person" className="">
-                Sales Person :{" "}
-              </label>
-              <input
-                id="quote_person"
-                type="text"
-                value={customerInfo.quote_info.person}
-                className="w-[70%]"
-                onChange={(e) => {
-                  const newValue = e.target.value;
-                  setCustomerInfo((prev) => ({
-                    ...prev,
-                    quote_info: {
-                      ...prev.quote_info,
-                      person: newValue,
-                    },
-                  }));
-                }}
-              />
-            </div>
-            <div className="flex gap-2">
-              <label htmlFor="quote_phone" className="">
-                Mob :{" "}
-              </label>
-              <input
-                id="quote_phone"
-                type="text"
-                value={customerInfo.quote_info.phone}
-                className="w-[70%]"
-                onChange={(e) => {
-                  const newValue = e.target.value;
-                  setCustomerInfo((prev) => ({
-                    ...prev,
-                    quote_info: {
-                      ...prev.quote_info,
-                      phone: newValue,
-                    },
-                  }));
-                }}
-              />
-            </div>
+              GST for outside from Rajasthan
+            </label>
           </div>
         </div>
       </div>

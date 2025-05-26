@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
 
-const ProductTable = ({ data, index }) => {
-  if (data.selected)
+const ProductTable = ({ data, serialNumber }) => {
+  // if (data.selected)
     return (
-      <tr>
-        <td className="align-top p-1">{index + 1}</td>
+      <tr className="break-avoid">
+        <td className="align-top p-1">{serialNumber + 1}</td>
         <td className="align-top p-1">
           <div className="flex">
             <div className="flex flex-col">

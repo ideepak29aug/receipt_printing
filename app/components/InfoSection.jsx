@@ -8,11 +8,6 @@ const InfoSection = () => {
     <div className="flex flex-wrap my-4">
       {/* dealer info */}
       <div className="w-[50%] border-[1px] p-2">
-        {customerInfo.dealer_info.dealer && (
-          <p className="font-bold">
-            Dealer Name : {customerInfo.dealer_info.dealer}
-          </p>
-        )}
         {customerInfo.dealer_info.organisation && (
           <p className="font-bold">
             Organisation Name : {customerInfo.dealer_info.organisation}
@@ -33,12 +28,10 @@ const InfoSection = () => {
             Email : {customerInfo.dealer_info.email}
           </p>
         )}
+        <p className="font-semibold">GSTIN : 08ABOFA3555B1ZK</p>
       </div>
       {/* supplier info*/}
       <div className="w-[50%] border-[1px] p-2">
-        {customerInfo.supplier_info.supplier && (
-          <p className="font-bold">{customerInfo.supplier_info.supplier}</p>
-        )}
         {customerInfo.supplier_info.address && (
           <p className="font-semibold">
             Site Address : {customerInfo.supplier_info.address}
@@ -83,24 +76,6 @@ const InfoSection = () => {
         <p className="font-semibold">
           Quote Date : {customerInfo.quote_info.date}
         </p>
-        {customerInfo.quote_info.email && (
-          <p className="font-semibold">
-            Email : {customerInfo.quote_info.email}
-          </p>
-        )}
-        {customerInfo.quote_info.website && (
-          <p className="font-semibold">
-            Web : {customerInfo.quote_info.website}
-          </p>
-        )}
-        {customerInfo.quote_info.person && (
-          <p className="font-semibold">
-            Sales Person : {customerInfo.quote_info.person}
-          </p>
-        )}
-        {customerInfo.quote_info.phone && (
-          <p className="font-semibold">Mob : {customerInfo.quote_info.phone}</p>
-        )}
       </div>
     </div>
   );

@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AccountContext from "../context/AccountContext";
 
 const CardModal = ({ setIsOpen, isOpen }) => {
   const { setData } = useContext(AccountContext);
   const [submitting, setSubmitting] = useState(false);
+  const [tempSqft, setTempSqft] = useState(0)
 
   const handleSubmit = () => {
     setSubmitting(true);
@@ -14,7 +15,7 @@ const CardModal = ({ setIsOpen, isOpen }) => {
       prevData.map((item) =>
         item.id === isOpen.data.id
           ? {
-              ...isOpen.data,
+              ...isOpen.data, 
               selected: !item.selected, // ensure it's selected
             }
           : item
@@ -26,6 +27,30 @@ const CardModal = ({ setIsOpen, isOpen }) => {
     }, 500);
   };
 
+  useEffect(() => {
+    const squareFit = Number(((isOpen.data.width / 1000) * (isOpen.data.height / 1000) * 10.764).toFixed(2))
+    setTempSqft(squareFit)
+    setIsOpen((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        sqft: squareFit,
+      },
+    }));
+  }, [isOpen.data.width, isOpen.data.height]);
+
+  useEffect(() => {
+    const totalAmount = Number((Number(isOpen.data.Rate) * Number(isOpen.data.sqft)).toFixed(2));
+    setIsOpen((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        Amount: totalAmount,
+      },
+    }));
+  }, [isOpen.data.Rate]);
+
+
   return (
     <div className="absolute inset-0 flex justify-center items-center z-20">
       <div
@@ -36,7 +61,7 @@ const CardModal = ({ setIsOpen, isOpen }) => {
       ></div>
       <div className="absolute bg-white p-6 rounded-2xl shadow-2xl w-[90%] z-40">
         <div
-          className="bg-red-500 text-white absolute -right-2 -top-2 w-6 h-6 rounded-full flex justify-center items-center cursor-pointer"
+          className="bg-red-500 redButton text-white absolute -right-2 -top-2 w-6 h-6 rounded-full flex justify-center items-center cursor-pointer"
           onClick={() => {
             setIsOpen({ status: false, data: null });
           }}
@@ -49,8 +74,8 @@ const CardModal = ({ setIsOpen, isOpen }) => {
               <th className="w-[15%]">Image</th>
               <th className="w-[29%]">Details</th>
               <th className="w-[8%]">Weight</th>
-              <th className="w-[8%]">Width</th>
-              <th className="w-[8%]">Height</th>
+              <th className="w-[8%]">{`Width (mm)`}</th>
+              <th className="w-[8%]">{`Height (mm)`}</th>
               <th className="w-[8%]">Qty</th>
               <th className="w-[8%]">Sqft</th>
               <th className="w-[8%]">{"Rate (Rs.)"}</th>
@@ -84,26 +109,123 @@ const CardModal = ({ setIsOpen, isOpen }) => {
                     </div>
                   </div>
                 </div>
-                <div className="w-full flex justify-center items-center h-8">Weight : {isOpen.data.weight} Kg</div>
+                <div className="w-full flex justify-center items-center h-8">
+                  Weight : {isOpen.data.weight} Kg
+                </div>
               </td>
               <td className="p-2 align-top">
                 <div>
                   <div>
-                    <p>
-                      {isOpen.data.details.wtype && isOpen.data.details.wtype}
-                    </p>
-                    <p>
-                      {isOpen.data.details.info1 && isOpen.data.details.info1}
-                    </p>
-                    <p>
-                      {isOpen.data.details.info2 && isOpen.data.details.info2}
-                    </p>
-                    <p>
-                      {isOpen.data.details.info3 && isOpen.data.details.info3}
-                    </p>
-                    <p>
-                      {isOpen.data.details.info4 && isOpen.data.details.info4}
-                    </p>
+                    <div>
+                      {isOpen.data.details.wtype && (
+                        <input
+                          type="text"
+                          className="w-full"
+                          value={isOpen.data.details.wtype}
+                          onChange={(e) => {
+                            const newValue = e.target.value;
+                            setIsOpen((prev) => ({
+                              ...prev,
+                              data: {
+                                ...prev.data,
+                                details: {
+                                  ...prev.data.details,
+                                  wtype: newValue,
+                                },
+                              },
+                            }));
+                          }}
+                        />
+                      )}
+                    </div>
+                    <div>
+                      {isOpen.data.details.info1 && (
+                        <input
+                          type="text"
+                          className="w-full"
+                          value={isOpen.data.details.info1}
+                          onChange={(e) => {
+                            const newValue = e.target.value;
+                            setIsOpen((prev) => ({
+                              ...prev,
+                              data: {
+                                ...prev.data,
+                                details: {
+                                  ...prev.data.details,
+                                  info1: newValue,
+                                },
+                              },
+                            }));
+                          }}
+                        />
+                      )}
+                    </div>
+                    <div>
+                      {isOpen.data.details.info2 && (
+                        <input
+                          type="text"
+                          className="w-full"
+                          value={isOpen.data.details.info2}
+                          onChange={(e) => {
+                            const newValue = e.target.value;
+                            setIsOpen((prev) => ({
+                              ...prev,
+                              data: {
+                                ...prev.data,
+                                details: {
+                                  ...prev.data.details,
+                                  info2: newValue,
+                                },
+                              },
+                            }));
+                          }}
+                        />
+                      )}
+                    </div>
+                    <div>
+                      {isOpen.data.details.info3 && (
+                        <input
+                          type="text"
+                          className="w-full"
+                          value={isOpen.data.details.info3}
+                          onChange={(e) => {
+                            const newValue = e.target.value;
+                            setIsOpen((prev) => ({
+                              ...prev,
+                              data: {
+                                ...prev.data,
+                                details: {
+                                  ...prev.data.details,
+                                  info3: newValue,
+                                },
+                              },
+                            }));
+                          }}
+                        />
+                      )}
+                    </div>
+                    <div>
+                      {isOpen.data.details.info4 && (
+                        <input
+                          type="text"
+                          className="w-full"
+                          value={isOpen.data.details.info4}
+                          onChange={(e) => {
+                            const newValue = e.target.value;
+                            setIsOpen((prev) => ({
+                              ...prev,
+                              data: {
+                                ...prev.data,
+                                details: {
+                                  ...prev.data.details,
+                                  info4: newValue,
+                                },
+                              },
+                            }));
+                          }}
+                        />
+                      )}
+                    </div>
                   </div>
                   <div>
                     {isOpen.data.details.flyscreen && (
@@ -440,15 +562,17 @@ const CardModal = ({ setIsOpen, isOpen }) => {
                 <div className="flex justify-between items-center">
                   <button
                     type="button"
-                    className="bg-blue-500 text-white rounded-lg w-8 px-3 py-1 cursor-pointer"
+                    className="bg-blue-500  text-white rounded-lg w-8 px-3 py-1 cursor-pointer"
                     disabled={isOpen.data.quantity <= 1}
                     onClick={() => {
                       const newValue = isOpen.data.quantity - 1;
+                      const squareFit = newValue * Number(tempSqft);
                       setIsOpen((prev) => ({
                         ...prev,
                         data: {
                           ...prev.data,
                           quantity: newValue,
+                          sqft: squareFit,
                         },
                       }));
                     }}
@@ -461,11 +585,13 @@ const CardModal = ({ setIsOpen, isOpen }) => {
                     className="bg-blue-500 text-white rounded-lg w-8 px-3 py-1 cursor-pointer"
                     onClick={() => {
                       const newValue = isOpen.data.quantity + 1;
+                      const squareFit = newValue * Number(tempSqft);
                       setIsOpen((prev) => ({
                         ...prev,
                         data: {
                           ...prev.data,
                           quantity: newValue,
+                          sqft: squareFit,
                         },
                       }));
                     }}
@@ -475,7 +601,7 @@ const CardModal = ({ setIsOpen, isOpen }) => {
                 </div>
               </td>
               <td className="p-2 align-top">
-                <input
+                {/* <input
                   type="number"
                   className="w-full"
                   value={isOpen.data.sqft}
@@ -489,7 +615,8 @@ const CardModal = ({ setIsOpen, isOpen }) => {
                       },
                     }));
                   }}
-                />
+                /> */}
+                {isOpen.data.sqft}
               </td>
               <td className="p-2 align-top">
                 <input
@@ -509,7 +636,7 @@ const CardModal = ({ setIsOpen, isOpen }) => {
                 />
               </td>
               <td className="p-2 align-top">
-                <input
+                {/* <input
                   type="number"
                   className="w-full"
                   value={isOpen.data.Amount}
@@ -523,7 +650,8 @@ const CardModal = ({ setIsOpen, isOpen }) => {
                       },
                     }));
                   }}
-                />
+                /> */}
+                {isOpen.data.Amount}
               </td>
             </tr>
           </tbody>
@@ -533,7 +661,7 @@ const CardModal = ({ setIsOpen, isOpen }) => {
             type="button"
             onClick={handleSubmit}
             className={`${
-              !isOpen.data.selected ? "bg-green-500" : "bg-red-500"
+              !isOpen.data.selected ? "bg-green-500 greenButton" : "bg-red-500 redButton"
             } text-white cursor-pointer px-4 py-2 rounded-lg`}
           >
             {submitting && !isOpen.data.selected

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "GHOST TEAM",
-  description: "Receipt printing app developed by Ghost Team",
+  title: "ALU Fenestration",
+  description: "Invoice printing app developed by Ghost Team",
 };
 
 export default function RootLayout({ children }) {

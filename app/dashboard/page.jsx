@@ -34,7 +34,7 @@ const page = () => {
           Next
         </button>
       </div>
-      <div className="flex flex-wrap mx-auto p-4 gap-8 justify-center items-center overflow-y-scroll h-[90vh] no-scrollbar">
+      <div className="flex flex-wrap mx-auto p-4 gap-8 justify-center items-center overflow-y-scroll h-[90vh]">
         {data?.map((item, index) => (
           <ImageCards key={index} data={item} setIsOpen={setIsOpen} />
         ))}

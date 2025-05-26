@@ -1,26 +1,43 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import AccountContext from "../context/AccountContext";
 
 const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
-  const [cost, setCost] = useState(0);
-  const [subTotal, setSubTotal] = useState(totalAmount);
-  const [totalGst, setTotalGst] = useState(0);
+  const [cgst, setCgst] = useState(0);
+  const [sgst, setSgst] = useState(0);
+  const [igst, setIgst] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
+  const { customerInfo } = useContext(AccountContext);
 
- useEffect(() => {
-  const total = Number(totalAmount);
-  const extraCost = Number(cost);
+  useEffect(() => {
+    const total = Number(totalAmount);
 
-  const subtotal = (total + extraCost).toFixed(2);
-  setSubTotal(subtotal);
+    if (customerInfo.gst_type === "Rajasthan") {
+      const cgst = (Number(total) * 0.9).toFixed(2);
+      setCgst(cgst);
 
-  const gst = (Number(subtotal) * 0.18).toFixed(2);
-  setTotalGst(gst);
+      const sgst = (Number(total) * 0.9).toFixed(2);
+      setSgst(sgst);
+    } else {
+      const igst = (Number(total) * 0.18).toFixed(2);
+      setIgst(igst);
+    }
 
-  const grand = (Number(subtotal) + Number(gst)).toFixed(2);
-  setGrandTotal(grand);
-}, [cost, totalAmount]);
+    const grand = (total + Number(cgst) + Number(sgst) + Number(igst)).toFixed(2);
+    setGrandTotal(grand)
+
+    // const extraCost = Number(cost);
+
+    // const subtotal = (total + extraCost).toFixed(2);
+    // setSubTotal(subtotal);
+
+    // const gst = (Number(subtotal) * 0.18).toFixed(2);
+    // setTotalGst(gst);
+
+    // const grand = (Number(subtotal) + Number(gst)).toFixed(2);
+    // setGrandTotal(grand);
+  }, [totalAmount]);
 
   return (
     <div className="mt-4 w-full flex mb-96">
@@ -83,7 +100,7 @@ const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
             </tr>
           </thead>
           <tbody>
-            <tr className="blue_row" style={{ backgroundColor : "#b0c4de"}}>
+            <tr className="blue_row" style={{ backgroundColor: "#b0c4de" }}>
               <td className="p-1">Sub Total</td>
               <td className="p-1" align="center">
                 :
@@ -94,56 +111,42 @@ const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
               <td className="p-1">Rs.</td>
             </tr>
             <tr>
-              <td className="p-1">Extra Pipe Cost</td>
+              <td className="p-1">CGST 9%</td>
               <td className="p-1" align="center">
                 :
               </td>
               <td className="p-1" align="right">
-                <input
-                  type="number"
-                  value={cost}
-                  onChange={(e) => setCost(Number(e.target.value))}
-                />
+                {cgst}
               </td>
               <td className="p-1">Rs.</td>
             </tr>
             <tr>
-              <td className="p-1">Sub Total</td>
+              <td className="p-1">SGST 9%</td>
               <td className="p-1" align="center">
                 :
               </td>
               <td className="p-1" align="right">
-                {subTotal}
+                {sgst}
               </td>
               <td className="p-1">Rs.</td>
             </tr>
             <tr>
-              <td className="p-1">GST @18%</td>
+              <td className="p-1">IGST 18%</td>
               <td className="p-1" align="center">
                 :
               </td>
               <td className="p-1" align="right">
-                {totalGst}
+                {igst}
               </td>
               <td className="p-1">Rs.</td>
             </tr>
-            <tr className="blue_row" style={{ backgroundColor : "#b0c4de"}}>
+            <tr className="blue_row" style={{ backgroundColor: "#b0c4de" }}>
               <td className="p-1">Grand Total</td>
               <td className="p-1" align="center">
                 :
               </td>
               <td className="p-1" align="right">
                 {grandTotal}
-              </td>
-              <td className="p-1">Rs.</td>
-            </tr>
-            <tr>
-              <td className="p-1">Average Price rate/sqft</td>
-              <td className="p-1" align="center">
-                :
-              </td>
-              <td className="p-1" align="right">
-                <input type="number" defaultValue={0}/>
               </td>
               <td className="p-1">Rs.</td>
             </tr>

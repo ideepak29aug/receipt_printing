@@ -190,3 +190,26 @@ th {
     );
 }
 
+/* css for old browsers */
+button{
+  background-color: blue;
+  color: white;
+}
+
+.greenButton{
+  background-color: green;
+  color: white;
+}
+.redButton{
+  background-color: red;
+  color: white;
+}
+
+h1{
+  color: red;
+}
+
+.break-avoid {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
