@@ -25,5 +25,5 @@ export const CustomerInfo = {
     quote: "",
     date: date,
   },
-  gst_type: 'Rajasthan',
+  gst_type: '',
 };

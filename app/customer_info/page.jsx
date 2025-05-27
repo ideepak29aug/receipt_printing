@@ -17,7 +17,7 @@ const page = () => {
   };
 
   return (
-    <div className="gradient-bg h-screen p-4 space-y-10">
+    <div className="gradient-bg p-4 space-y-10">
       <div className="flex justify-between items-center px-8">
         <button
           className="bg-blue-500 text-white px-6 py-2 rounded-lg cursor-pointer"

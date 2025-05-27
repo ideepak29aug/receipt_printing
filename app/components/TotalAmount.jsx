@@ -14,29 +14,24 @@ const TotalAmount = ({ totalWindows, totalWeight, totalAmount, totalSqft }) => {
     const total = Number(totalAmount);
 
     if (customerInfo.gst_type === "Rajasthan") {
-      const cgst = (Number(total) * 0.9).toFixed(2);
+      const cgst = (total * 0.09).toFixed(2);
       setCgst(cgst);
 
-      const sgst = (Number(total) * 0.9).toFixed(2);
+      const sgst = (total * 0.09).toFixed(2);
       setSgst(sgst);
-    } else {
-      const igst = (Number(total) * 0.18).toFixed(2);
+
+      const grand = (total + Number(cgst) + Number(sgst)).toFixed(2);
+      setGrandTotal(grand);
+    } else if (customerInfo.gst_type === "Outside") {
+      const igst = (total * 0.18).toFixed(2);
       setIgst(igst);
+
+      const grand = (total + Number(igst)).toFixed(2);
+      setGrandTotal(grand);
+    } else {
+      const grand = total.toFixed(2);
+      setGrandTotal(grand);
     }
-
-    const grand = (total + Number(cgst) + Number(sgst) + Number(igst)).toFixed(2);
-    setGrandTotal(grand)
-
-    // const extraCost = Number(cost);
-
-    // const subtotal = (total + extraCost).toFixed(2);
-    // setSubTotal(subtotal);
-
-    // const gst = (Number(subtotal) * 0.18).toFixed(2);
-    // setTotalGst(gst);
-
-    // const grand = (Number(subtotal) + Number(gst)).toFixed(2);
-    // setGrandTotal(grand);
   }, [totalAmount]);
 
   return (
